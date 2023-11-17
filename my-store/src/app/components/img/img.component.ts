@@ -6,7 +6,8 @@ import {
   OnInit,
   OnChanges,
   AfterViewInit,
-  OnDestroy
+  OnDestroy,
+  SimpleChanges
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 // import { EventEmitter } from 'stream';
@@ -20,6 +21,21 @@ import { CommonModule } from '@angular/common';
 })
 export class ImgComponent implements OnInit, OnChanges, AfterViewInit, OnDestroy {
 
+  img: string = '';
+
+  @Input('img')
+  set changeImg(newImg: string){
+    this.img = newImg;
+    // Code when img input changes
+    console.log('Change just img => ', this.img);
+  }
+
+  @Input() alt: string = '';
+  @Output() loaded = new EventEmitter<string>();
+  imageDefault = 'https://www.m2crowd.com/core/i/placeholder.png';
+  counter = 0;
+  counterFn : number | undefined;
+
   // ---------------------------------------------------------------------
   // Ciclos
   // ---------------------------------------------------------------------
@@ -28,15 +44,21 @@ export class ImgComponent implements OnInit, OnChanges, AfterViewInit, OnDestroy
     // NO async -- once time
     console.log('Constructor: ', 'imgValue => ', this.img);
   }
-  ngOnChanges(): void {
+  ngOnChanges(changes: SimpleChanges): void {
     // before & during render
     // inputs changes -- many times - each change
     console.log('ngOnChanges: ', 'imgValue => ', this.img);
+    console.log('Changes: ', changes);
   }
   ngOnInit(): void {
     // before render
     // async - fetch -- once time
     console.log('ngOnInit: ', 'imgValue => ', this.img);
+
+    this.counterFn = window.setInterval(() => {
+      this.counter += 1;
+      console.log('run counter');
+    }, 1000);
   }
   // Grupo ngDoCheck
   ngAfterViewInit(): void {
@@ -47,15 +69,11 @@ export class ImgComponent implements OnInit, OnChanges, AfterViewInit, OnDestroy
   ngOnDestroy(): void {
     // delete component
     console.log('ngOnDestroy');
+    clearInterval(this.counterFn); // window
   }
 
   // ---------------------------------------------------------------------
   // ---------------------------------------------------------------------
-
-  @Input() img: string = 'valor init';
-  @Output() loaded = new EventEmitter<string>();
-
-  imageDefault = 'https://www.m2crowd.com/core/i/placeholder.png';
 
   imgError(){
     this.img = this.imageDefault
