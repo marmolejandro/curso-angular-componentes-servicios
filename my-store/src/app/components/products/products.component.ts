@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductComponent } from '../product/product.component';
 import { Product } from '../../models/product.model';
+import { StoreService } from '../../services/store.service'
 
 @Component({
   selector: 'app-products',
@@ -12,6 +13,8 @@ import { Product } from '../../models/product.model';
 })
 export class ProductsComponent {
 
+  myShoppingCart: Product[] = [];
+  total: Number = 0;
   products: Product[] = [
     {
       id: '1',
@@ -50,4 +53,17 @@ export class ProductsComponent {
       image: 'https://static.platzi.com/media/user_upload/glasses-05350737-5831-4c98-be55-824399206dba.jpg'
     },
   ];
+
+  constructor(
+    private storeService: StoreService
+  ) {
+    this.myShoppingCart = this.storeService.getShoppingCart();
+  }
+
+  onAddToShoppingCart(product: Product){
+    console.log(product)
+    this.storeService.addProducto(product);
+
+    this.total = this.storeService.getTotal();
+  }
 }

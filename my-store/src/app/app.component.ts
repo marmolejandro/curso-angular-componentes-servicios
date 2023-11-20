@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
 import { ImgComponent } from './components/img/img.component';
 import { ProductsComponent } from './components/products/products.component';
+import { NavComponent } from './components/nav/nav.component';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,8 @@ import { ProductsComponent } from './components/products/products.component';
     FormsModule,
 
     ImgComponent,
-    ProductsComponent
+    ProductsComponent,
+    NavComponent
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']

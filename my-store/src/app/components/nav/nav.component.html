@@ -1,0 +1,47 @@
+<div class="show-mobile">
+  <div>
+    <button class="btn-menu" (click)="toggleMenu()">
+      <img src="./assets/svg/icon_menu.svg" alt="menu">
+    </button>
+    <a href="">
+      <img src="./assets/svg/logo_yard_sale.svg" alt="logo">
+    </a>
+    <a href="">
+      <img src="./assets/svg/icon_shopping_cart.svg" alt="logo">
+    </a>
+  </div>
+  <div class="side-menu" [class.active]="activeMenu">
+    <button (click)="toggleMenu()">Close</button>
+    <ul>
+      <li>All</li>
+      <li>Clothes</li>
+      <li>Electronics</li>
+    </ul>
+  </div>
+</div>
+
+
+<div class="hide-mobile">
+  <div>
+    <nav>
+      <a class="logo" href="">
+        <img src="./assets/svg/logo_yard_sale.svg" alt="logo">
+      </a>
+
+      <ul>
+        <li>All</li>
+        <li>Clothes</li>
+        <li>Electronics</li>
+      </ul>
+    </nav>
+
+    <div class="info">
+      <div class="account">marmolejandro</div>
+      <div>
+        <a href="">
+          <img src="./assets/svg/icon_shopping_cart.svg" alt="logo">
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
