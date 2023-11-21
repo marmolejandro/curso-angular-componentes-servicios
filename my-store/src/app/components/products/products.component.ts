@@ -12,7 +12,9 @@ export class ProductsComponent implements OnInit {
 
   myShoppingCart: Product[] = [];
   total: Number = 0;
-  products: Product[] = []
+  products: Product[] = [];
+  today = new Date();
+  date = new Date(2023,12,21);
 
   constructor(
     private storeService: StoreService,
@@ -26,7 +28,8 @@ export class ProductsComponent implements OnInit {
     // Async
     this.productsService.getAllProducts()
                         .subscribe(data => {
-      console.log(data)
+      this.products = data;
+      // console.log(data)
     })
   }
 
