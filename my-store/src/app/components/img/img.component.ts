@@ -9,18 +9,13 @@ import {
   OnDestroy,
   SimpleChanges
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
-// import { EventEmitter } from 'stream';
 
 @Component({
   selector: 'app-img',
-  standalone: true,
-  imports: [CommonModule],
   templateUrl: './img.component.html',
   styleUrl: './img.component.scss'
 })
 export class ImgComponent implements OnInit, OnChanges, AfterViewInit, OnDestroy {
-
   img: string = '';
 
   @Input('img')
