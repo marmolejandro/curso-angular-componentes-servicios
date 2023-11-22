@@ -1,8 +1,8 @@
-<p>
-  Cantidad de productos {{ myShoppingCart.length }}
+<p class="total">
+  <span>Total: </span>{{ total | currency: 'COP' + ' ' }}
 </p>
-<p>
-  Total: ${{ total }}
+<p class="counter">
+  <span>Cantidad de productos: </span>{{ myShoppingCart.length }}
 </p>
 <!-- <p>
   Today: {{ today | date: 'short'}}
