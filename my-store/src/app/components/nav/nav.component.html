@@ -9,6 +9,7 @@
     <a href="">
       <img src="./assets/svg/icon_shopping_cart.svg" alt="logo">
     </a>
+    <span class="counter">{{ counter }}</span>
   </div>
   <div class="side-menu" [class.active]="activeMenu">
     <button (click)="toggleMenu()">Close</button>
@@ -37,7 +38,7 @@
 
     <div class="info">
       <div class="account">marmolejandro</div>
-      <div>
+      <div class="container-counter-cart">
         <a href="">
           <img src="./assets/svg/icon_shopping_cart.svg" alt="logo">
         </a>
