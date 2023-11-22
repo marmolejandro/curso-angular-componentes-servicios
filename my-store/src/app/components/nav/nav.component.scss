@@ -15,6 +15,12 @@
       cursor: pointer;
     }
 
+    .logo{
+      background-color: white;
+      padding: 6px 8px;
+      border-radius: 6px;
+    }
+
     .counter{
       position: absolute;
       width: 16px;
@@ -76,6 +82,9 @@
   }
   .logo {
     margin-right: 1em;
+    background-color: white;
+    padding: 6px 8px;
+    border-radius: 6px;
   }
   nav {
     display: flex;
